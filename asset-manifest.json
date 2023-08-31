@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/odins-store/static/css/main.441216e5.css",
+    "main.js": "/odins-store/static/js/main.f11621d5.js",
+    "index.html": "/odins-store/index.html",
+    "main.441216e5.css.map": "/odins-store/static/css/main.441216e5.css.map",
+    "main.f11621d5.js.map": "/odins-store/static/js/main.f11621d5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.441216e5.css",
+    "static/js/main.f11621d5.js"
+  ]
+}
