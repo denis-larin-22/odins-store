@@ -1,0 +1,19 @@
+.header {
+    backdrop-filter: none;
+}
+
+.header a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+}
+
+.footer-bottom-shadow {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 39.06%, rgba(0, 0, 0, 1) 99%);
+}
+
+.footer-circuit-text {
+    color: black;
+    text-shadow: 0px 0px 4px rgb(255, 255, 255), 0px 0px 20px rgb(255, 255, 255);
+}
