@@ -1,5 +1,5 @@
 import './index.css';
-import { MainPage } from './pages/main/MainPage';
+import { MainPage } from './pages';
 
 function Root() {
   return (

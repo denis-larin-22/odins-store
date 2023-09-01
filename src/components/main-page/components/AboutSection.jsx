@@ -1,14 +1,14 @@
-import { Image } from "@nextui-org/react"
-import { getFromPublic } from "../../../_utils/getFromPublic"
+import { Image } from "@nextui-org/react";
+import { getFromPublic } from "../../../_utils/getFromPublic";
 
 export const AboutSection = () => {
     const imagePath = getFromPublic('/assets/main-page/brand.png')
 
     return (
-        <section className="container py-[80px] flex items-end gap-x-[100px]">
+        <section className="container py-[40px] pt-[220px] sm:py-[100px] flex flex-col-reverse md:flex-row items-center md:items-end gap-[33px] md:gap-[100px]">
             <Image
                 isZoomed
-                alt="NextUI Fruit Image with Zoom"
+                alt="Image with Zoom"
                 src={imagePath}
                 classNames={{
                     zoomedWrapper: 'rounded-none',
@@ -28,7 +28,7 @@ export const AboutSection = () => {
                         </clipPath>
                     </defs>
                 </svg>
-                <div className="text-xl-size">
+                <div className="text-mob-xl-size md:text-xl-size">
                     420 Four TwoO — бренд с духом уличной культуры, для людей, которые хотят жить в мире, узнавать разные культуры, быть свободными от предрассудков и носить то, что раскрывает их как личность и отражает их жизненные ценности.
                 </div>
             </div>

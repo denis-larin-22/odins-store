@@ -1,6 +1,7 @@
 import { Button } from "@nextui-org/react";
-import { getFromPublic } from "../../../_utils/getFromPublic"
+import { getFromPublic } from "../../../_utils/getFromPublic";
 import { NewProductCard } from "./NewProductCard";
+
 
 export const NewProducts = () => {
     const COUNT_PRODUCTS = 6;
@@ -23,13 +24,13 @@ export const NewProducts = () => {
     return (
         <>
             <div className="py-[10px] bg-black">
-                <div className="container flex items-center text-white gap-x-[40px]">
-                    <h2 className="text-xxl-size uppercase">Новинки</h2>
-                    <img src={imgNewTextPath} alt="NEW" />
+                <div className="container flex flex-wrap items-center justify-center sm:justify-start text-white gap-x-[40px]">
+                    <h2 className="text-mob-xxl-size md:text-xxl-size uppercase">Новинки</h2>
+                    <img src={imgNewTextPath} alt="NEW" className="md:w-[58px]" />
                 </div>
             </div>
             <section className="container py-[60px]">
-                <ul className="columns-2 gap-x-[40px]">
+                <ul className="columns-1 md:columns-2 gap-x-[40px]">
                     {imgProductPathes.map((path, index) => (
                         <li key={index} className="">
                             <NewProductCard imgPath={path} />

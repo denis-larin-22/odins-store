@@ -1,9 +1,0 @@
-.main-top-shadow {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.00) 100%);
-    color: white;
-}
-
-.circuit-text {
-    color: white;
-    text-shadow: 0px 0px 4px black;
-}

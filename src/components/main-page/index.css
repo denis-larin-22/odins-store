@@ -1,0 +1,11 @@
+/* Main page styles */
+
+.main-top-shadow {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 39.06%, rgba(0, 0, 0, 1) 99%);
+    color: white;
+}
+
+.circuit-text {
+    color: white;
+    text-shadow: 0px 0px 4px black;
+}
