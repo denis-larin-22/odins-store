@@ -1,8 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import { CatalogPage, MainPage, ProductPage } from '../../pages';
 import NotFound from '../../pages/NotFound';
 
-export const routes = createBrowserRouter([
+export const routes = createHashRouter([
     {
         path: '/',
         element: <MainPage/>,
