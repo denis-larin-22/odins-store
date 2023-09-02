@@ -17,7 +17,6 @@ export const Header = () => {
                     className="sm:hidden"
                 />
                 <NavbarBrand>
-                    {/* <p className="font-bold text-inherit">ODIN`S</p> */}
                     <OdinsWord />
                 </NavbarBrand>
             </NavbarContent>

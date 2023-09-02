@@ -34,9 +34,12 @@
     padding: 0.35em 1em;
     background: none;
     perspective: 2em;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 700;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.2em;
+    @media screen and (max-width: 768px) {
+        font-size: 1.5em;
+    }
 }
 .glowing-word{
     float: left;
