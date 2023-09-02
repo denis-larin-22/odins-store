@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/odins-store/static/css/main.406a80cc.css",
-    "main.js": "/odins-store/static/js/main.b806a150.js",
+    "main.css": "/odins-store/static/css/main.e2445a88.css",
+    "main.js": "/odins-store/static/js/main.663e80b2.js",
     "index.html": "/odins-store/index.html",
-    "main.406a80cc.css.map": "/odins-store/static/css/main.406a80cc.css.map",
-    "main.b806a150.js.map": "/odins-store/static/js/main.b806a150.js.map"
+    "main.e2445a88.css.map": "/odins-store/static/css/main.e2445a88.css.map",
+    "main.663e80b2.js.map": "/odins-store/static/js/main.663e80b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.406a80cc.css",
-    "static/js/main.b806a150.js"
+    "static/css/main.e2445a88.css",
+    "static/js/main.663e80b2.js"
   ]
 }
