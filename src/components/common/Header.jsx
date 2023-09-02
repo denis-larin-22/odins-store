@@ -48,13 +48,13 @@ export const Header = () => {
             </NavbarContent>
             <NavbarMenu className='h-full pt-[60px] flex flex-col gap-y-[30px]'>
                 <NavbarMenuItem>
-                    <Link className="w-full text-xl-size uppercase" href="#" size="lg">главная</Link>
+                    <RouterLink to={"/"} className="w-full text-xl-size uppercase" size="lg">главная</RouterLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem>
-                    <Link className="w-full text-xl-size uppercase" href="#" size="lg">каталог</Link>
+                    <RouterLink to={"/catalog"} className="w-full text-xl-size uppercase" size="lg">каталог</RouterLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem>
-                    <Link className="w-full text-xl-size uppercase" href="#" size="lg">о нас</Link>
+                    <RouterLink to={"/"} className="w-full text-xl-size uppercase" size="lg">о нас</RouterLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem className='mt-[200px] text-center'>
                     <p className="font-bold text-inherit">LOGO</p>
