@@ -6,7 +6,7 @@ import { ProductCard } from "../common";
 export const NewProducts = () => {
     const COUNT_PRODUCTS = 6;
     const imgNewSignPath = getFromPublic('/assets/common/new-sign.svg');
-    const banner = getFromPublic(`/assets/main-page/new-products/product7.png`)
+    const banner = getFromPublic(`/assets/main-page/new-products/product7.png`);
 
     const getProductImgPathes = () => {
         const pathes = [];

@@ -1,4 +1,4 @@
-import './index.css';
+import './styles/index.css';
 import { useState } from "react";
 import { getFromPublic } from "../../_utils/getFromPublic";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";

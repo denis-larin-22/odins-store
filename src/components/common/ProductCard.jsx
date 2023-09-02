@@ -1,4 +1,4 @@
-import './index.css';
+import './styles/index.css';
 import { Button, Card, CardHeader, Image, Link } from "@nextui-org/react";
 
 export const ProductCard = ({ isNewSign = false, product }) => {

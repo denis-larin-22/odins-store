@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { getFromPublic } from "../../_utils/getFromPublic";
 import { ProductCard } from "../common";
 import { Select, SelectItem } from "@nextui-org/react";

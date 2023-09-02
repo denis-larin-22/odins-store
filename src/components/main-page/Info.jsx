@@ -1,8 +1,6 @@
-import { getFromPublic } from "../../_utils/getFromPublic";
+import { Contacts } from "../common";
 
 export const Info = () => {
-    const telephoneLogo = getFromPublic('/assets/common/telephone.png');
-    const mailLogo = getFromPublic('/assets/common/mail.png');
     const hStyles = 'text-mob-xxl-size sm:text-xxl-size circuit-text uppercase';
     const pStyles = 'text-mob-xl-size sm:text-xl-size pt-[10px] sm:pt-[20px]'
 
@@ -28,16 +26,7 @@ export const Info = () => {
                 </li>
             </ul>
 
-            <div className="container text-xl-size">
-                <div className="flex flex-wrap items-center gap-x-4 mb-[30px]">
-                    <img src={telephoneLogo} alt="Telephone number" />
-                    <a href="/" className={pStyles}>+38 098 444 7777</a>
-                </div>
-                <div className={`flex flex-wrap items-center gap-x-4 ${pStyles}`}>
-                    <img src={mailLogo} alt="eMail" />
-                    odins-store@gmail.com
-                </div>
-            </div>
+            <Contacts />
         </section>
     )
 }
