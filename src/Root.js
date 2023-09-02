@@ -1,12 +1,11 @@
+import { routes } from './core/routes';
 import './index.css';
-import { CatalogPage, MainPage, ProductPage } from './pages';
+import { RouterProvider } from 'react-router-dom';
 
 function Root() {
   return (
     <div className="">
-      {/* <MainPage/> */}
-      {/* <CatalogPage/> */}
-      <ProductPage/>
+      <RouterProvider router={routes}/>
     </div>
   );
 }

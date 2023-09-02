@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getFromPublic } from "../../_utils/getFromPublic";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 import { OdinsWord } from './OdinsWord';
+import { Link as RouterLink } from 'react-router-dom';
 
 export const Header = () => {
     const instagramLogoPath = getFromPublic('/assets/common/instagram-logo.svg');
@@ -23,19 +24,19 @@ export const Header = () => {
 
             <NavbarContent className="hidden sm:flex gap-5 md:gap-[120px]" justify="center">
                 <NavbarItem>
-                    <Link color="foreground" href="#" className='uppercase'>
+                    <RouterLink to={"/"} color="foreground" className='uppercase'>
                         главная
-                    </Link>
+                    </RouterLink>
                 </NavbarItem>
                 <NavbarItem isActive>
-                    <Link href="#" aria-current="page" className='uppercase'>
+                    <RouterLink to={"/catalog"} aria-current="page" className='uppercase'>
                         каталог
-                    </Link>
+                    </RouterLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="#" className='uppercase'>
+                    <RouterLink to={"/"} color="foreground" className='uppercase'>
                         о нас
-                    </Link>
+                    </RouterLink>
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">

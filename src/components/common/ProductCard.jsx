@@ -1,7 +1,12 @@
 import './styles/index.css';
-import { Button, Card, CardHeader, Image, Link } from "@nextui-org/react";
+import { Button, Card, CardHeader, Image } from "@nextui-org/react";
+import { useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 export const ProductCard = ({ isNewSign = false, product }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0); // Прокрутить страницу вверх
+    }, []);
 
     return (
         <div className="py-[10px]">
@@ -11,7 +16,7 @@ export const ProductCard = ({ isNewSign = false, product }) => {
                 }
                 <CardHeader className="card-options flex-col gap-y-[10px] !items-start card-options">
                     <p className="text-white/80 uppercase text-xl-size">Sizes: 41, 42, 43, 44</p>
-                    <Button as={Link} href="/" className="text-md-size">More</Button>
+                    <Button as={RouterLink} to={"/product"} className="text-md-size">More</Button>
                 </CardHeader>
                 <Image
                     removeWrapper
