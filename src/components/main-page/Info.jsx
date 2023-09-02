@@ -1,4 +1,4 @@
-import { getFromPublic } from "../../../_utils/getFromPublic";
+import { getFromPublic } from "../../_utils/getFromPublic";
 
 export const Info = () => {
     const telephoneLogo = getFromPublic('/assets/common/telephone.png');

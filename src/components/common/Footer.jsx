@@ -14,7 +14,7 @@ export const Footer = () => {
                 <nav className="container grid grid-cols-1 sm:grid-cols-3 gap-4 text-mob-xl-size md:text-xl-size text-white">
 
                     <div className="">
-                        <Link href="#" className="text-mob-xl-size md:text-xl-size footer-circuit-text">
+                        <Link href="#" className="text-mob-xl-size md:text-xl-size circuit-text">
                             КАТАЛОГ
                         </Link>
                         <ul className="mt-[20px] flex flex-col gap-y-[10px] sm:order-none">
@@ -26,7 +26,7 @@ export const Footer = () => {
                     </div>
 
                     <div className="">
-                        <Link href="#" className="text-mob-xl-size md:text-xl-size footer-circuit-text">
+                        <Link href="#" className="text-mob-xl-size md:text-xl-size circuit-text">
                             О НАС
                         </Link>
                         <div className="mt-[20px] flex flex-col gap-y-[10px]">

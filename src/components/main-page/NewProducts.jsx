@@ -1,11 +1,11 @@
 import { Button } from "@nextui-org/react";
-import { getFromPublic } from "../../../_utils/getFromPublic";
-import { NewProductCard } from "./NewProductCard";
+import { getFromPublic } from "../../_utils/getFromPublic";
+import { ProductCard } from "../common";
 
 
 export const NewProducts = () => {
     const COUNT_PRODUCTS = 6;
-    const imgNewTextPath = getFromPublic('/assets/main-page/new-text.svg');
+    const imgNewSignPath = getFromPublic('/assets/common/new-sign.svg');
     const banner = getFromPublic(`/assets/main-page/new-products/product7.png`)
 
     const getProductImgPathes = () => {
@@ -26,14 +26,14 @@ export const NewProducts = () => {
             <div className="py-[10px] bg-black">
                 <div className="container flex flex-wrap items-center justify-center sm:justify-start text-white gap-x-[40px]">
                     <h2 className="text-mob-xxl-size md:text-xxl-size uppercase">Новинки</h2>
-                    <img src={imgNewTextPath} alt="NEW" className="md:w-[58px]" />
+                    <img src={imgNewSignPath} alt="NEW" className="w-[58px] md:w-fit" />
                 </div>
             </div>
             <section className="container py-[60px]">
                 <ul className="columns-1 md:columns-2 gap-x-[40px]">
                     {imgProductPathes.map((path, index) => (
                         <li key={index} className="">
-                            <NewProductCard imgPath={path} />
+                            <ProductCard height="500px" product={path} isNewSign={true} />
                         </li>
                     ))}
                 </ul>

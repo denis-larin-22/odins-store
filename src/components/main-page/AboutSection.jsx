@@ -1,20 +1,32 @@
 import { Image } from "@nextui-org/react";
-import { getFromPublic } from "../../../_utils/getFromPublic";
+import { getFromPublic } from "../../_utils/getFromPublic";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export const AboutSection = () => {
     const imagePath = getFromPublic('/assets/main-page/brand.png')
+    //Animation
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+    const getInView = (x) => ({
+        transform: isInView ? "none" : `translateX(${x})`,
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+    })
+
 
     return (
-        <section className="container py-[40px] pt-[220px] sm:py-[100px] flex flex-col-reverse md:flex-row items-center md:items-end gap-[33px] md:gap-[100px]">
-            <Image
-                isZoomed
-                alt="Image with Zoom"
-                src={imagePath}
-                classNames={{
-                    zoomedWrapper: 'rounded-none',
-                    img: 'rounded-none max-w-[375px]',
-                }}
-            />
+        <section ref={ref} className="container py-[40px] pt-[220px] sm:py-[100px] flex flex-col-reverse md:flex-row items-center md:items-end gap-[33px] md:gap-[100px]">
+            <motion.div style={getInView("-200px")}>
+                <Image
+                    isZoomed
+                    alt="Image with Zoom"
+                    src={imagePath}
+                    classNames={{
+                        zoomedWrapper: 'rounded-none',
+                        img: 'rounded-none max-w-[375px]',
+                    }}
+                /></motion.div>
 
             <div className="max-w-[560px]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 86 86" fill="none">
@@ -28,9 +40,9 @@ export const AboutSection = () => {
                         </clipPath>
                     </defs>
                 </svg>
-                <div className="text-mob-xl-size md:text-xl-size">
+                <motion.div style={getInView("200px")} className="text-mob-xl-size md:text-xl-size">
                     420 Four TwoO — бренд с духом уличной культуры, для людей, которые хотят жить в мире, узнавать разные культуры, быть свободными от предрассудков и носить то, что раскрывает их как личность и отражает их жизненные ценности.
-                </div>
+                </motion.div>
             </div>
         </section>
     )

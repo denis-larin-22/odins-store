@@ -2,6 +2,7 @@ import './index.css';
 import { useState } from "react";
 import { getFromPublic } from "../../_utils/getFromPublic";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
+import { OdinsWord } from './OdinsWord';
 
 export const Header = () => {
     const instagramLogoPath = getFromPublic('/assets/common/instagram-logo.svg');
@@ -15,7 +16,8 @@ export const Header = () => {
                     className="sm:hidden"
                 />
                 <NavbarBrand>
-                    <p className="font-bold text-inherit">ODIN`S</p>
+                    {/* <p className="font-bold text-inherit">ODIN`S</p> */}
+                    <OdinsWord />
                 </NavbarBrand>
             </NavbarContent>
 

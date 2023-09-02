@@ -1,6 +1,5 @@
 import { Footer, Header } from "../components/common";
-import { AboutSection, Info, Main, NewProducts } from "../components/main-page/components";
-
+import { AboutSection, Info, Main, NewProducts } from "../components/main-page";
 
 export const MainPage = () => {
     return (

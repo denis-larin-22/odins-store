@@ -1,10 +1,11 @@
 import './index.css';
-import { MainPage } from './pages';
+import { CatalogPage, MainPage } from './pages';
 
 function Root() {
   return (
     <div className="">
-      <MainPage/>
+      {/* <MainPage/> */}
+      <CatalogPage/>
     </div>
   );
 }

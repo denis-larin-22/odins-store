@@ -1,5 +1,4 @@
-import { getFromPublic } from "../../../_utils/getFromPublic";
-import { Header } from "../../common/Header";
+import { getFromPublic } from "../../_utils/getFromPublic";
 
 export const Main = () => {
     const mainBcgPath = getFromPublic('/assets/main-page/main-bcg.png');
