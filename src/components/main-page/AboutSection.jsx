@@ -16,7 +16,7 @@ export const AboutSection = () => {
 
 
     return (
-        <section ref={ref} className="container py-[40px] pt-[220px] sm:py-[100px] flex flex-col-reverse md:flex-row items-center md:items-end gap-[33px] md:gap-[100px]">
+        <section className="container py-[40px] pt-[220px] sm:py-[100px] flex flex-col-reverse md:flex-row items-center md:items-end gap-[33px] md:gap-[100px]">
             <motion.div style={getInView("-200px")}>
                 <Image
                     isZoomed
@@ -28,7 +28,7 @@ export const AboutSection = () => {
                     }}
                 /></motion.div>
 
-            <div className="max-w-[560px]">
+            <motion.div ref={ref} className="max-w-[560px]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 86 86" fill="none">
                     <g clipPath="url(#clip0_8_191)">
                         <path d="M0.774902 70.3165H7.1499L36.6343 42.2347V3.91028H0.774902V70.3165ZM6.0874 9.22278H31.3218V39.9609L6.0874 63.9947V9.22278Z" fill="black" />
@@ -43,7 +43,7 @@ export const AboutSection = () => {
                 <motion.div style={getInView("200px")} className="text-mob-xl-size md:text-xl-size">
                     420 Four TwoO — бренд с духом уличной культуры, для людей, которые хотят жить в мире, узнавать разные культуры, быть свободными от предрассудков и носить то, что раскрывает их как личность и отражает их жизненные ценности.
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     )
 }

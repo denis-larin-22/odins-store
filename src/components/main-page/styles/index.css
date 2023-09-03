@@ -5,7 +5,7 @@
     color: white;
 }
 
-.circuit-text {
+.store-name-text {
     color: white;
-    text-shadow: 0px 0px 4px black;
+    text-shadow: 0px 0px 4px black, 0px 0px 20px black;
 }

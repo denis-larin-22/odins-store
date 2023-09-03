@@ -4,11 +4,12 @@ import { AboutSection, Info, Main, NewProducts } from "../components/main-page";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const MainPage = () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(sessionStorage.getItem('wasShown') || false);
 
     setTimeout(() => {
         setIsVisible(true);
-    }, 1200)
+        sessionStorage.setItem("wasShown", "true");
+    }, 2000)
 
     return (
         <>
@@ -28,18 +29,14 @@ export const MainPage = () => {
                 </AnimatePresence>
             }
             {!isVisible && <AnimatePresence>
-                <div className="min-h-screen bg-black">
-                    <header className="w-[1488px] mx-auto py-[27px] md:py-[20px] pl-[7px] ">
-                        <motion.div
-                            layout
-                            initial={{ opacity: 0, y: "-100px" }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1.4 }}
-                            className="w-full pl-[50px] md:pl-0"
-                        >
-                            <OdinsWord />
-                        </motion.div>
-                    </header>
+                <div className="min-h-screen bg-black flex items-center justify-center text-white">
+                    <motion.span
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 2 }}
+                        transition={{ ease: "easeInOut" }}
+                    >
+                        <OdinsWord />
+                    </motion.span>
                 </div>
             </AnimatePresence>
             }

@@ -1,5 +1,7 @@
-import { Link } from "@nextui-org/react"
-import { getFromPublic } from "../../_utils/getFromPublic"
+import './styles/index.css';
+import { Link } from "@nextui-org/react";
+import { getFromPublic } from "../../_utils/getFromPublic";
+import { Link as RouterLink } from 'react-router-dom';
 
 export const Footer = () => {
     const townBcg = getFromPublic('/assets/common/town-bcg.png');
@@ -14,9 +16,9 @@ export const Footer = () => {
                 <nav className="container grid grid-cols-1 sm:grid-cols-3 gap-4 text-mob-xl-size md:text-xl-size text-white">
 
                     <div className="">
-                        <Link href="#" className="text-mob-xl-size md:text-xl-size circuit-text">
+                        <RouterLink to={"/catalog"} className="text-mob-xl-size md:text-xl-size circuit-text">
                             КАТАЛОГ
-                        </Link>
+                        </RouterLink>
                         <ul className="mt-[20px] flex flex-col gap-y-[10px] sm:order-none">
                             <li className=""><a href="." className="">зимняя обувь</a></li>
                             <li className=""><a href="." className="">демисезонная обувь</a></li>
@@ -26,9 +28,9 @@ export const Footer = () => {
                     </div>
 
                     <div className="">
-                        <Link href="#" className="text-mob-xl-size md:text-xl-size circuit-text">
+                        <RouterLink to={"/"} className="text-mob-xl-size md:text-xl-size circuit-text">
                             О НАС
-                        </Link>
+                        </RouterLink>
                         <div className="mt-[20px] flex flex-col gap-y-[10px]">
                             <a href="/" className="">+38 098 444 7777</a>
                             <p className="">odins-store@gmail.com</p>

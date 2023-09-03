@@ -15,14 +15,14 @@ export const ProductList = () => {
             opacity: 1,
             scale: 1,
             transition: {
-                delayChildren: 0.3,
-                staggerChildren: 0.2
+                delayChildren: 0.5,
+                staggerChildren: 0.1
             }
         },
     };
 
     const itemShow = {
-        hidden: { y: 20, opacity: 0 },
+        hidden: { y: 80, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1
@@ -61,8 +61,6 @@ export const ProductList = () => {
                 variants={container}
                 initial="hidden"
                 animate="visible"
-                transition={{ duration: 0.2 }}
-                // className="columns-1 md:columns-2 lg:columns-3"
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]"
             >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
@@ -70,7 +68,7 @@ export const ProductList = () => {
                         key={index}
                         variants={itemShow}
                         transition={{
-                            ease: "easeIn",
+                            ease: "easeInOut",
                             duration: 0.5,
                         }}
                     >

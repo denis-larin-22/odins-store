@@ -4,6 +4,7 @@ import { getFromPublic } from "../../_utils/getFromPublic";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 import { OdinsWord } from './OdinsWord';
 import { Link as RouterLink } from 'react-router-dom';
+import { OdinsLogo } from './OdinsLogo';
 
 export const Header = () => {
     const instagramLogoPath = getFromPublic('/assets/common/instagram-logo.svg');
@@ -55,8 +56,8 @@ export const Header = () => {
                 <NavbarMenuItem>
                     <RouterLink to={"/"} className="w-full text-xl-size uppercase" size="lg">о нас</RouterLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem className='mt-[200px] text-center'>
-                    <p className="font-bold text-inherit">LOGO</p>
+                <NavbarMenuItem className=' h-full flex items-center justify-center'>
+                    <OdinsLogo />
                 </NavbarMenuItem>
             </NavbarMenu>
         </Navbar>

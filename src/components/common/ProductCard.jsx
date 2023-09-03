@@ -10,7 +10,7 @@ export const ProductCard = ({ isNewSign = false, product }) => {
 
     return (
         <div className="py-[10px]">
-            <Card className="product-card col-span-12 sm:col-span-4 w-full h-[400px]">
+            <Card className="product-card col-span-12 sm:col-span-4 w-full h-[200px] md:h-[400px]">
                 {
                     isNewSign && <p className='circuit-text text-xl-size absolute top-2 right-2 z-10'>NEW</p>
                 }

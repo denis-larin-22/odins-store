@@ -3,3 +3,4 @@ export * from './Footer';
 export * from './OdinsWord';
 export * from './ProductCard';
 export * from './Contacts';
+export * from './OdinsLogo';

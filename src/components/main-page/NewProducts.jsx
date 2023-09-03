@@ -1,6 +1,8 @@
 import { Button } from "@nextui-org/react";
 import { getFromPublic } from "../../_utils/getFromPublic";
 import { ProductCard } from "../common";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 
 export const NewProducts = () => {
@@ -21,6 +23,15 @@ export const NewProducts = () => {
 
     const imgProductPathes = getProductImgPathes();
 
+    //Animation
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+    const getInView = () => ({
+        transform: isInView ? "none" : `translateY(250px)`,
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+    })
+
     return (
         <>
             <div className="py-[10px] bg-black">
@@ -30,13 +41,16 @@ export const NewProducts = () => {
                 </div>
             </div>
             <section className="container py-[60px]">
-                <ul className="columns-1 md:columns-2 gap-x-[40px]">
+                <motion.ul
+                    ref={ref}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]"
+                >
                     {imgProductPathes.map((path, index) => (
-                        <li key={index} className="">
+                        <motion.li key={index} style={getInView()}>
                             <ProductCard height="500px" product={path} isNewSign={true} />
-                        </li>
+                        </motion.li>
                     ))}
-                </ul>
+                </motion.ul>
 
                 <div className="relative">
                     <img src={banner} alt="Banner" className="max-h-[724px] max-w-[1440px] w-full object-cover rounded-md" />
