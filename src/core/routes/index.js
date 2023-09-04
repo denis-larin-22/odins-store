@@ -1,5 +1,5 @@
 import { createHashRouter } from 'react-router-dom';
-import { CatalogPage, MainPage, ProductPage } from '../../pages';
+import { CatalogPage, FavoritesPage, MainPage, ProductPage } from '../../pages';
 import NotFound from '../../pages/NotFound';
 
 export const routes = createHashRouter([
@@ -15,5 +15,9 @@ export const routes = createHashRouter([
     {
         path: '/product',
         element: <ProductPage />,
+    },
+    {
+        path: '/favorites',
+        element: <FavoritesPage />,
     }
 ])

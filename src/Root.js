@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 
 function Root() {
   return (
-    <div className="">
+    <div>
       <RouterProvider router={routes}/>
     </div>
   );

@@ -5,6 +5,7 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle,
 import { OdinsWord } from './OdinsWord';
 import { Link as RouterLink } from 'react-router-dom';
 import { OdinsLogo } from './OdinsLogo';
+import { FavoritesLogo } from './FavoritesLogo';
 
 export const Header = () => {
     const instagramLogoPath = getFromPublic('/assets/common/instagram-logo.svg');
@@ -22,25 +23,28 @@ export const Header = () => {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden sm:flex gap-5 md:gap-[120px]" justify="center">
+            <NavbarContent className="hidden sm:flex gap-5 md:gap-[100px]" justify="center">
                 <NavbarItem>
-                    <RouterLink to={"/"} color="foreground" className='uppercase'>
+                    <RouterLink to={"/"} color="foreground" className='text-header-link uppercase'>
                         главная
                     </RouterLink>
                 </NavbarItem>
                 <NavbarItem isActive>
-                    <RouterLink to={"/catalog"} aria-current="page" className='uppercase'>
+                    <RouterLink to={"/catalog"} aria-current="page" className='text-header-link uppercase'>
                         каталог
                     </RouterLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <RouterLink to={"/"} color="foreground" className='uppercase'>
+                    <RouterLink to={"/"} color="foreground" className='text-header-link uppercase'>
                         о нас
                     </RouterLink>
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
-                <NavbarItem>
+                <NavbarItem className='flex gap-3'>
+                    <RouterLink to={"/favorites"}>
+                        <FavoritesLogo />
+                    </RouterLink>
                     <Link href=''>
                         <img src={instagramLogoPath} alt="instagram" />
                     </Link>

@@ -28,8 +28,7 @@ export const CarouselBaner = () => {
             radius="10px"
             automatic={true}
             dots={true}
-            pauseIconColor="white"
-            pauseIconSize="40px"
+            pauseIconColor="transparent"
             slideBackgroundColor="darkgrey"
             slideImageFit="cover"
             // thumbnails={true}

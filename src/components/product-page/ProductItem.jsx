@@ -19,7 +19,7 @@ export const ProductItem = () => {
     const imgProductPathes = getProductImgPathes();
 
     return (
-        <div className="container pt-[30px]  sm:pb-[140px] flex flex-col md:flex-row gap-0 sm:gap-[70px]">
+        <div className="container pt-[30px] sm:pb-[140px] flex flex-col md:flex-row gap-0 sm:gap-[70px]">
             <Carousel
                 data={imgProductPathes}
                 width="600px"

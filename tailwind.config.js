@@ -16,6 +16,10 @@ module.exports = {
       },
     },
     fontSize: {
+      'header-link': ['1.5rem', {
+        lineHeight: '1.8rem',
+        fontWeight: 500
+      }],
       'xxl-size': ['3rem', {
         lineHeight: '3.6rem',
         fontWeight: 700

@@ -12,11 +12,11 @@ export const Info = () => {
     const getInView = (y) => ({
         transform: isInView ? "none" : `translateY(${y})`,
         opacity: isInView ? 1 : 0,
-        transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+        transition: "all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
     })
 
     return (
-        <section className="">
+        <section>
             <div className="py-[10px] bg-black">
                 <div className="container flex items-center text-white gap-x-[40px]">
                     <h2 className="text-mob-xxl-size md:text-xxl-size uppercase">Оплата и доставка</h2>

@@ -40,7 +40,7 @@ export const NewProducts = () => {
                     <img src={imgNewSignPath} alt="NEW" className="w-[58px] md:w-fit" />
                 </div>
             </div>
-            <section className="container py-[60px]">
+            <section className="container py-[40px]">
                 <motion.ul
                     ref={ref}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]"
@@ -52,7 +52,7 @@ export const NewProducts = () => {
                     ))}
                 </motion.ul>
 
-                <div className="relative">
+                {/* <div className="relative">
                     <img src={banner} alt="Banner" className="max-h-[724px] max-w-[1440px] w-full object-cover rounded-md" />
                     <div className="text-xl-size absolute top-[50%] right-1">
                         <h5 className="">Trade name</h5>
@@ -61,7 +61,7 @@ export const NewProducts = () => {
                             <p className="flex flex-col"><span className="line-through text-gray-500">1200 грн.</span>950 грн.</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </section >
 
         </>
