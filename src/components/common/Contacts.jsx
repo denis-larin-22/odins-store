@@ -9,8 +9,8 @@ export const Contacts = ({ numberView = true, emailView = true }) => {
     return (
         <div className="container text-xl-size">
             {numberView &&
-                <Tooltip placement="left" showArrow size="lg" color="success" content="Номер для заказа">
-                    <div className="flex flex-wrap items-center gap-x-4 mb-[30px]">
+                <Tooltip placement="bottom" showArrow size="lg" color="success" content="Номер для заказа">
+                    <div className="max-w-fit flex flex-wrap items-center gap-x-4 mb-[30px]">
                         <img src={telephoneLogo} alt="Telephone number" />
                         <a href="/" className={pStyles}>+38 098 444 7777</a>
                     </div>
