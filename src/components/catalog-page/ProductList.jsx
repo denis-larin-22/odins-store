@@ -1,13 +1,19 @@
+import { useState } from "react";
 import { getFromPublic } from "../../_utils/getFromPublic";
 import { ProductCard } from "../common";
-import { Select, SelectItem } from "@nextui-org/react";
+import { Button, Select, SelectItem, Tooltip } from "@nextui-org/react";
 import { motion } from "framer-motion";
 
 export const ProductList = () => {
-    const banner = getFromPublic(`/assets/main-page/new-products/product4.png`)
+    const banner = getFromPublic(`/assets/main-page/new-products/product4.png`);
+    const columnIcon = getFromPublic(`/assets/common/column.svg`);
+    const rowIcon = getFromPublic(`/assets/common/row.svg`);
+
 
     const season = ["лето", "зима", "демисизон"];
     const gender = ["для него", "для неё", "подросток"];
+
+    const [isRow, setIsRow] = useState(false);
 
     const container = {
         hidden: { opacity: 1, scale: 0 },
@@ -55,16 +61,27 @@ export const ProductList = () => {
                         </SelectItem>
                     ))}
                 </Select>
+                <Tooltip content="cards direction" color="primary">
+                    <Button
+                        variant="bordered"
+                        className="hidden md:block m-auto"
+                        onClick={() => setIsRow(!isRow)}
+                    >
+                        {isRow ? <img className="w-[30px] m-auto" src={columnIcon} alt="column" /> : <img className="w-[30px] m-auto" src={rowIcon} alt="row" />}
+                    </Button>
+                </Tooltip>
             </div>
 
             <motion.ul
+                layout
                 variants={container}
                 initial="hidden"
                 animate="visible"
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]"
+                className={`grid grid-cols-1 ${isRow ? 'md:grid-cols-1 lg:grid-cols-1' : 'md:grid-cols-2 lg:grid-cols-3'} md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]`}
             >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
                     <motion.li
+                        layout
                         key={index}
                         variants={itemShow}
                         transition={{
@@ -76,6 +93,6 @@ export const ProductList = () => {
                     </motion.li>
                 ))}
             </motion.ul>
-        </section>
+        </section >
     )
 }
