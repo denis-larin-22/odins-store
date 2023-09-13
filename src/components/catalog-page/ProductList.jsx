@@ -1,20 +1,8 @@
-import { useState } from "react";
-import { getFromPublic } from "../../_utils/getFromPublic";
 import { ProductCard } from "../common";
-import { Button, Select, SelectItem, Tooltip } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import { Filters } from "./Filters";
 
-export const ProductList = () => {
-    const banner = getFromPublic(`/assets/main-page/new-products/product4.png`);
-    const columnIcon = getFromPublic(`/assets/common/column.svg`);
-    const rowIcon = getFromPublic(`/assets/common/row.svg`);
-
-
-    const season = ["лето", "зима", "демисизон"];
-    const gender = ["для него", "для неё", "подросток"];
-
-    const [isRow, setIsRow] = useState(false);
-
+export const ProductList = ({ catalog }) => {
     const container = {
         hidden: { opacity: 1, scale: 0 },
         visible: {
@@ -35,64 +23,40 @@ export const ProductList = () => {
         },
     };
 
+    if (catalog === null) return <section className="container">
+        <Filters />
+        <p className="text-center my-[50px]">Нечего не найдено</p>
+    </section>
 
     return (
         <section className="container">
-            <div className="pt-[20px] flex flex-col sm:flex-row max-w-lg gap-4">
-                <Select
-                    size="lg"
-                    label="Сезон"
-                    className="w-full"
-                >
-                    {season.map((season, index) => (
-                        <SelectItem key={index + gender} value={season}>
-                            {season}
-                        </SelectItem>
-                    ))}
-                </Select>
-                <Select
-                    size="lg"
-                    label="Для кого"
-                    className="w-full"
-                >
-                    {gender.map((gender, index) => (
-                        <SelectItem key={index + gender} value={gender}>
-                            {gender}
-                        </SelectItem>
-                    ))}
-                </Select>
-                <Tooltip content="cards direction" color="primary">
-                    <Button
-                        variant="bordered"
-                        className="hidden md:block m-auto"
-                        onClick={() => setIsRow(!isRow)}
-                    >
-                        {isRow ? <img className="w-[30px] m-auto" src={columnIcon} alt="column" /> : <img className="w-[30px] m-auto" src={rowIcon} alt="row" />}
-                    </Button>
-                </Tooltip>
-            </div>
+            <Filters />
 
-            <motion.ul
-                layout
-                variants={container}
-                initial="hidden"
-                animate="visible"
-                className={`grid grid-cols-1 ${isRow ? 'md:grid-cols-1 lg:grid-cols-1' : 'md:grid-cols-2 lg:grid-cols-3'} md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]`}
-            >
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-                    <motion.li
-                        layout
-                        key={index}
-                        variants={itemShow}
-                        transition={{
-                            ease: "easeInOut",
-                            duration: 0.5,
-                        }}
-                    >
-                        <ProductCard product={banner} />
-                    </motion.li>
-                ))}
-            </motion.ul>
+            {(catalog.length) ?
+                <motion.ul
+                    variants={container}
+                    initial="hidden"
+                    animate="visible"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]"
+                >
+                    {catalog.map((product) => (
+                        <motion.li
+                            key={product.id}
+                            variants={itemShow}
+                            transition={{
+                                ease: "easeInOut",
+                                duration: 0.5,
+                            }}
+                        >
+                            <ProductCard product={product} />
+                        </motion.li>
+                    ))}
+                </motion.ul>
+                :
+                <div className="">Loading...</div>
+            }
         </section >
     )
 }
+
+

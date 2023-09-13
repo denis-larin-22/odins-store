@@ -1,27 +1,13 @@
-import { Button } from "@nextui-org/react";
 import { getFromPublic } from "../../_utils/getFromPublic";
 import { ProductCard } from "../common";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { connect } from "react-redux";
+import { getProductsListFromFirebase } from "../../api/getProductsListFromFirebase";
 
 
-export const NewProducts = () => {
-    const COUNT_PRODUCTS = 6;
+export const NewProductsView = ({ list, getList }) => {
     const imgNewSignPath = getFromPublic('/assets/common/new-sign.svg');
-    const banner = getFromPublic(`/assets/main-page/new-products/product7.png`);
-
-    const getProductImgPathes = () => {
-        const pathes = [];
-
-        for (let i = 0; i < COUNT_PRODUCTS; i++) {
-            const newPath = getFromPublic(`/assets/main-page/new-products/product${i + 1}.png`)
-            pathes.push(newPath);
-        }
-
-        return pathes;
-    }
-
-    const imgProductPathes = getProductImgPathes();
 
     //Animation
     const ref = useRef(null);
@@ -30,6 +16,11 @@ export const NewProducts = () => {
         transform: isInView ? "none" : `translateY(250px)`,
         opacity: isInView ? 1 : 0,
         transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+    })
+
+    useEffect(() => {
+        if (list.length === 0) getList();
+        return
     })
 
     return (
@@ -45,11 +36,14 @@ export const NewProducts = () => {
                     ref={ref}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]"
                 >
-                    {imgProductPathes.map((path, index) => (
-                        <motion.li key={index} style={getInView()}>
-                            <ProductCard height="500px" product={path} isNewSign={true} />
-                        </motion.li>
-                    ))}
+                    {list.map((product) => {
+                        if (!product.newProduct) return null;
+                        return (
+                            <motion.li key={product.id} style={getInView()}>
+                                <ProductCard height="500px" product={product} />
+                            </motion.li>
+                        )
+                    })}
                 </motion.ul>
 
                 {/* <div className="relative">
@@ -67,3 +61,13 @@ export const NewProducts = () => {
         </>
     )
 }
+
+const mapState = (state) => ({
+    list: state.productList,
+})
+
+const mapDispatch = (dispatch) => ({
+    getList: () => dispatch(getProductsListFromFirebase())
+})
+
+export const NewProducts = connect(mapState, mapDispatch)(NewProductsView)

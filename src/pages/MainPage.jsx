@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Footer, Header, OdinsWord } from "../components/common";
 import { AboutSection, Info, Main, NewProducts } from "../components/main-page";
-import { motion, AnimatePresence } from "framer-motion";
 
 export const MainPage = () => {
-    const [isVisible, setIsVisible] = useState(sessionStorage.getItem('wasShown') || false);
+    // Turnes off startup screen
+    const wasShown = sessionStorage.getItem('wasShown') || false;
+    const [isVisible, setIsVisible] = useState(wasShown);
 
     setTimeout(() => {
         setIsVisible(true);
@@ -13,6 +15,7 @@ export const MainPage = () => {
 
     return (
         <>
+            {/* Main page */}
             {isVisible &&
                 <AnimatePresence>
                     <motion.div
@@ -28,8 +31,10 @@ export const MainPage = () => {
                     </motion.div>
                 </AnimatePresence>
             }
+
+            {/* Startup screen */}
             {!isVisible && <AnimatePresence>
-                <div className="min-h-screen bg-black flex items-center justify-center text-white">
+                <div className="min-h-screen overflow-hidden bg-black flex items-center justify-center text-white">
                     <motion.span
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 2 }}
