@@ -1,7 +1,7 @@
 import './styles/index.css';
 import { useState } from "react";
 import { getFromPublic } from "../../_utils/getFromPublic";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Tooltip } from "@nextui-org/react";
 import { OdinsWord } from './OdinsWord';
 import { Link as RouterLink } from 'react-router-dom';
 import { OdinsLogo } from './OdinsLogo';
@@ -12,7 +12,7 @@ export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <Navbar shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} maxWidth="2xl" className="header bg-black py-[20px] text-white">
+        <Navbar shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} maxWidth="2xl" className="header bg-black py-[10px] text-white overflow-hidden">
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -23,28 +23,33 @@ export const Header = () => {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden sm:flex gap-5 md:gap-[100px]" justify="center">
+            <NavbarContent className="header-nav hidden sm:flex gap-5 md:gap-[100px]" justify="center">
                 <NavbarItem>
-                    <RouterLink to={"/"} color="foreground" className='text-header-link uppercase'>
-                        главная
+                    <RouterLink to={"/"} >
+                        головна
                     </RouterLink>
                 </NavbarItem>
                 <NavbarItem isActive>
-                    <RouterLink to={"/catalog"} aria-current="page" className='text-header-link uppercase'>
+                    <RouterLink to={"/catalog"} >
                         каталог
                     </RouterLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <RouterLink to={"/"} color="foreground" className='text-header-link uppercase'>
-                        о нас
+                    <RouterLink to={"/"} >
+                        про нас
                     </RouterLink>
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
                 <NavbarItem className='flex gap-3'>
-                    <RouterLink to={"/favorites"}>
-                        <FavoritesLogo />
-                    </RouterLink>
+                    <Tooltip content="до обраних" placement='left'>
+                        <RouterLink to={"/favorites"}>
+                            <FavoritesLogo />
+                        </RouterLink>
+                    </Tooltip>
+                </NavbarItem>
+
+                <NavbarItem className='flex gap-3'>
                     <Link href=''>
                         <img src={instagramLogoPath} alt="instagram" />
                     </Link>
@@ -52,13 +57,13 @@ export const Header = () => {
             </NavbarContent>
             <NavbarMenu className='h-full pt-[60px] flex flex-col gap-y-[30px]'>
                 <NavbarMenuItem>
-                    <RouterLink to={"/"} className="w-full text-xl-size uppercase" size="lg">главная</RouterLink>
+                    <RouterLink to={"/"} className="w-full text-mob-header-link uppercase" size="lg">головна</RouterLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem>
-                    <RouterLink to={"/catalog"} className="w-full text-xl-size uppercase" size="lg">каталог</RouterLink>
+                    <RouterLink to={"/catalog"} className="w-full text-mob-header-link uppercase" size="lg">каталог</RouterLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem>
-                    <RouterLink to={"/"} className="w-full text-xl-size uppercase" size="lg">о нас</RouterLink>
+                    <RouterLink to={"/"} className="w-full text-mob-header-link uppercase" size="lg">про нас</RouterLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem className=' h-full flex items-center justify-center'>
                     <OdinsLogo />

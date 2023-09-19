@@ -1,8 +1,8 @@
-import { Button, Tooltip } from "@nextui-org/react";
-import { getFromPublic } from "../../_utils/getFromPublic";
+import { Tooltip } from "@nextui-org/react";
 import { Link as RouterLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
-export const FavoritesList = ({ favoriteList, deleteFromFavorite }) => {
+export const FavoritesList = ({ favoriteList, deleteFromFavorite, setActiveProduct }) => {
 
     if (!favoriteList.length) return (
         <section className="container min-h-[200px] flex items-center justify-center">
@@ -11,17 +11,21 @@ export const FavoritesList = ({ favoriteList, deleteFromFavorite }) => {
     )
 
     return (
-        <ul className="container py-[30px]">
+        <motion.ul
+            layout
+            className="container py-[30px] overflow-hidden"
+            initial={{ opacity: 0, y: '-100px' }}
+            animate={{ opacity: 1, y: 0 }}
+        >
             {
                 favoriteList.map((product) => (
-                    <li key={product.id} className="relative flex flex-col lg:flex-row items-center gap-[45px] py-[30px] border-t-1 border-black ">
-                        <RouterLink to={"/favorites"}>
-                            <img src={product.images[0]} alt="Product" className="max-w-[375px]" />
+                    <motion.li layout key={product.id} className="relative flex flex-col lg:flex-row items-center gap-0 md:gap-[45px] py-[30px] border-t-1 border-black ">
+                        <RouterLink onClick={() => setActiveProduct(product)} to={"/product"} className="">
+                            <img src={product.images[0]} alt="Product" className="max-h-[250px]" />
                         </RouterLink>
-                        <div className="text-mob-xl-size md:text-xl-size flex flex-col self-start gap-y-[20px]">
+                        <div className="text-mob-xl-size md:text-xl-size flex flex-col self-start gap-0 md:gap-y-[20px]">
                             <h2 className="">{product.name}</h2>
-                            <p className="text-gray-500">{product.price} грн.</p>
-                            <p>{product.sizes}</p>
+                            <p className="text-smal md:text-medium">{product.sizes}</p>
                         </div>
                         <Tooltip content="Delete" placement="left">
                             <button className="absolute top-[15px] right-[15px]" onClick={() => deleteFromFavorite(product)}>
@@ -30,9 +34,9 @@ export const FavoritesList = ({ favoriteList, deleteFromFavorite }) => {
                                 </svg>
                             </button>
                         </Tooltip>
-                    </li>
+                    </motion.li>
                 ))
             }
-        </ul>
+        </motion.ul>
     )
 }

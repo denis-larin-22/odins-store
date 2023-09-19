@@ -4,7 +4,7 @@ import { OdinsLogo } from "../common";
 import { motion } from 'framer-motion';
 
 export const Main = () => {
-    const mainBcgPath = getFromPublic('/assets/main-page/main-bcg.png');
+    const mainBcgPath = getFromPublic('/assets/main-page/main-bcg.jpg');
 
     return (
         <div className="relative h-screen main-top-shadow overflow-hidden">
@@ -13,10 +13,10 @@ export const Main = () => {
                 <div className="h-full flex flex-col items-center justify-center">
                     <OdinsLogo />
                     <motion.h1
-                        className="text-xxl-size tracking-tight md:tracking-widest uppercase store-name-text"
+                        className="text-mob-xxl-size tracking-widest md:text-xxl-size uppercase store-name-text"
                         initial={{ opacity: 0, y: "50px" }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ ease: "backInOut", duration: 1 }}
+                        transition={{ ease: "backInOut", duration: 1.5 }}
                     >
                         Odin`s shoes
                     </motion.h1>

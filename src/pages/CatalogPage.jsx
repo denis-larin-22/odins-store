@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { CarouselBaner, LeaderProducts } from "../components/catalog-page";
+import { CarouselBaner } from "../components/catalog-page";
 import { ProductList } from "../components/catalog-page/ProductList";
 import { Header, Footer } from "../components/common";
 import { getProductsListFromFirebase } from "../api/getProductsListFromFirebase";
@@ -16,7 +16,7 @@ const CatalogPageView = ({ list, catalog, getList }) => {
         <>
             <Header />
             <ProductList catalog={catalog} />
-            <LeaderProducts />
+            {/* <LeaderProducts /> */}
             <CarouselBaner list={list} />
             <Footer />
         </>

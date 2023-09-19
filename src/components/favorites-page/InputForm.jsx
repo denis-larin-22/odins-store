@@ -42,11 +42,11 @@ export const InputForm = ({ btnHandler }) => {
     }
 
     return (
-        <div className="container">
+        <motion.div initial={{ opacity: 0, y: '100px' }} animate={{ opacity: 1, y: 0 }} className="container flex flex-col items-center justify-center overflow-hidden">
             {toggleVisible
                 ?
                 <div className="text-xl-size flex flex-col gap-[30px]">
-                    <p className="">Оставить заказ на сайте:</p>
+                    <p className="">Залишити замовлення на сайті:</p>
                     <Input
                         validationState={validationState}
                         isRequired
@@ -55,7 +55,7 @@ export const InputForm = ({ btnHandler }) => {
                         onChange={({ target }) => setInputValues({ ...inputValues, name: target.value })}
                         variant="bordered"
                         type="text"
-                        label="Name"
+                        label="Ім'я"
                         className="max-w-[400px]"
                     />
                     <Input
@@ -66,7 +66,7 @@ export const InputForm = ({ btnHandler }) => {
                         onChange={({ target }) => setInputValues({ ...inputValues, number: target.value })}
                         variant="bordered"
                         type="text"
-                        label="Number"
+                        label="Номер телефону"
                         className="max-w-[400px]"
                     />
                     <Input
@@ -105,6 +105,6 @@ export const InputForm = ({ btnHandler }) => {
                 </div>
             }
             <Contacts />
-        </div>
+        </motion.div>
     )
 }

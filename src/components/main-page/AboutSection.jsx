@@ -6,9 +6,9 @@ import { useRef } from "react";
 export const AboutSection = () => {
     const imagePath = getFromPublic('/assets/main-page/brand.png');
     const advantages = [
-        "отличное качество",
-        "приятный материал",
-        "доставка по всей Украине"
+        "висока якість",
+        "найкращі матеріали",
+        "доставка по всій Україні"
     ]
     //Animation
     const ref = useRef(null);
@@ -16,7 +16,7 @@ export const AboutSection = () => {
     const getInView = (x) => ({
         transform: isInView ? "none" : `translateX(${x})`,
         opacity: isInView ? 1 : 0,
-        transition: "all 0.8s easeInOut"
+        transition: "all 1s ease"
     })
 
 
@@ -26,7 +26,7 @@ export const AboutSection = () => {
                 initial={{ opacity: 0, y: "100px" }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ ease: "backInOut", duration: 0.8 }}
-                className="w-full md:w-fit absolute top-[-120px] right-0 p-[20px] lg:p-[50px] bg-black max-w-[450px] flex flex-col gap-[25px] text-medium sm:text-md-size leading-normal"
+                className="w-full md:w-fit absolute top-[-120px] right-0 p-[20px] lg:p-[35px] bg-black max-w-[450px] flex flex-col gap-[25px] text-medium sm:text-md-size leading-normal"
             >
                 {advantages.map((text, index) => (
                     <li key={index} className="flex items-center gap-[12px] text-white">
@@ -39,14 +39,14 @@ export const AboutSection = () => {
             </motion.ul>
 
             <div className="flex flex-col-reverse md:flex-row items-center md:items-end gap-[33px] md:gap-[80px] overflow-hidden">
-                <motion.div style={getInView("-200px")}>
+                <motion.div style={getInView("-400px")}>
                     <Image
                         isZoomed
                         alt="Image with Zoom"
                         src={imagePath}
                         classNames={{
                             zoomedWrapper: 'rounded-none',
-                            img: 'rounded-none max-w-[375px]',
+                            img: 'rounded-none max-w-[375px] grayscale',
                         }}
                     />
                 </motion.div>
@@ -63,8 +63,8 @@ export const AboutSection = () => {
                             </clipPath>
                         </defs>
                     </svg>
-                    <motion.div style={getInView("200px")} className="text-mob-xl-size md:text-xl-size">
-                        420 Four TwoO — бренд с духом уличной культуры, для людей, которые хотят жить в мире, узнавать разные культуры, быть свободными от предрассудков и носить то, что раскрывает их как личность и отражает их жизненные ценности.
+                    <motion.div style={getInView("400px")} className="text-mob-xl-size md:text-xl-size">
+                        Odin`s shoes — бренд з духом вуличної культури, для тих хто найбільше цінує якість та комфорт. Чоловіче, жіноче та підліткове взуття найвищої якості з натуральної шкіри. Дуже приємні ціни, продаж як оптом, так і в роздріб.
                     </motion.div>
                 </motion.div>
             </div>

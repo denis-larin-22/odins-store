@@ -1,6 +1,7 @@
 import { ProductCard } from "../common";
 import { motion } from "framer-motion";
 import { Filters } from "./Filters";
+import { Spinner } from "@nextui-org/react";
 
 export const ProductList = ({ catalog }) => {
     const container = {
@@ -25,7 +26,9 @@ export const ProductList = ({ catalog }) => {
 
     if (catalog === null) return <section className="container">
         <Filters />
-        <p className="text-center my-[50px]">Нечего не найдено</p>
+        <div className="min-h-[50vh] flex items-center justify-center">
+            <Spinner size="lg" />
+        </div>
     </section>
 
     return (
@@ -37,7 +40,7 @@ export const ProductList = ({ catalog }) => {
                     variants={container}
                     initial="hidden"
                     animate="visible"
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]"
+                    className="pb-[20px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px]"
                 >
                     {catalog.map((product) => (
                         <motion.li
@@ -53,7 +56,9 @@ export const ProductList = ({ catalog }) => {
                     ))}
                 </motion.ul>
                 :
-                <div className="">Loading...</div>
+                <>
+                    <p className="text-center my-[30vh]">На жаль, нічого не знайдено</p>
+                </>
             }
         </section >
     )

@@ -9,10 +9,7 @@ const FiltersView = ({ getFilter, getResetFilter }) => {
     const [gender, setGender] = useState("");
 
     const btnHandler = () => {
-        const filterParam = {
-            season,
-            gender
-        }
+        const filterParam = { season, gender }
         getFilter(filterParam);
     }
 
@@ -25,7 +22,7 @@ const FiltersView = ({ getFilter, getResetFilter }) => {
     return (
         <>
             <Accordion>
-                <AccordionItem key="1" aria-label="Фильтровать" title="Фильтровать" classNames={{ content: "flex flex-col gap-3" }}>
+                <AccordionItem key="1" aria-label="Фільтрувати" title="Фільтрувати" classNames={{ content: "flex flex-col md:flex-row items-center gap-3 text-large" }} className="border-b-1 border-black">
                     <div className="flex gap-3 p-[10px]">
                         <RadioGroup
                             label="Сезон:"
@@ -33,8 +30,8 @@ const FiltersView = ({ getFilter, getResetFilter }) => {
                             onChange={e => setSeason(e.target.value)}
                         >
                             <Radio value="winter">Зима</Radio>
-                            <Radio value="summer">Лето</Radio>
-                            <Radio value="demi-season">Демисезон</Radio>
+                            <Radio value="summer">Літо</Radio>
+                            <Radio value="demi-season">Весна/Осінь</Radio>
                         </RadioGroup>
 
                         <RadioGroup
@@ -42,16 +39,17 @@ const FiltersView = ({ getFilter, getResetFilter }) => {
                             value={gender}
                             onChange={e => setGender(e.target.value)}
                         >
-                            <Radio value="male">для него</Radio>
-                            <Radio value="female">для неё</Radio>
-                            <Radio value="children">подросток</Radio>
+                            <Radio value="male">для нього</Radio>
+                            <Radio value="female">для неї</Radio>
+                            <Radio value="teenager">підліток</Radio>
                         </RadioGroup>
                     </div>
                     {
                         (season || gender) && <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} className="max-w-[250px] flex flex-col gap-2">
-                            <Button onClick={btnHandler}>Отфильтровать</Button>
-                            <Button onClick={resetHandler}>Сбросить</Button>
+                            <Button className="rounded-none" onClick={btnHandler}>Відфільтрувати</Button>
+                            <Button className="rounded-none" onClick={resetHandler}>Скасувати</Button>
                         </motion.div>
+
                     }
                 </AccordionItem>
             </Accordion>

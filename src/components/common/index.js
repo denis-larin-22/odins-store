@@ -5,3 +5,4 @@ export * from './ProductCard';
 export * from './Contacts';
 export * from './OdinsLogo';
 export * from './FavoritesLogo';
+export * from './QuestionModal';

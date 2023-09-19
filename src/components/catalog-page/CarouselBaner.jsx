@@ -1,7 +1,7 @@
 import { Carousel } from 'react-carousel-minimal';
 
 export const CarouselBaner = ({ list }) => {
-    // The slider accepts an array of objects where each object must have two properties: {image: url, caption: text}
+    // The Carousel accepts an array of objects where each object must have two properties: {image: url, caption: text}
 
     const images = list.map(product => ({
         image: product.images[0],

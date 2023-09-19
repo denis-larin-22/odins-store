@@ -15,7 +15,7 @@ const LeaderProductsView = ({ list, getList }) => {
             <div className="py-[10px] bg-black">
                 <p className="container text-white text-xxl-size uppercase">Лидеры продаж</p>
             </div>
-            <ul className="container columns-1 md:columns-2 lg:columns-4">
+            <ul className="container grid-rows-1 md:grid-rows-2 lg:grid-rows-4">
                 {list.map((product, index) => {
                     if (product.bestseller) return (
                         <li key={index} className="">
