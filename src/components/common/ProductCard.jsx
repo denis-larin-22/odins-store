@@ -17,7 +17,7 @@ const ProductCardView = ({ product, setActiveProduct }) => {
             }
             <CardHeader className="p-[20px] card-options h-[60%] text-white/70">
                 <div className="card-options-content text-xl-size ">
-                    <p className='uppercase text-mob-xl-size md:text-xl-size'>{product.name}</p>
+                    <p className='font-sans uppercase text-mob-xl-size md:text-xl-size'>{product.name}</p>
                     <div className=" text-small md:text-medium">
                         <p>Розміри: {product.sizes}</p>
                         <p>Сезон: {product.season === 'winter' ? 'зима' : product.season === 'summer' ? 'літо' : 'весна/осінь'}</p>

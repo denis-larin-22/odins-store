@@ -66,9 +66,9 @@ export const ProductItem = ({ activeProduct, addFavoriteHandler, favoriteBtnTogg
                         initial="hidden"
                         animate="visible"
                         variants={variants}
-                        className="text-xl-size md:text-xl-size"
+                        className="text-xl-size md:text-xl-size text-gray-500"
                     >
-                        <span className="text-gray-500">Модель:</span> {name}
+                        Модель: <span className="font-sans text-black">{name}</span>
                     </motion.h4>
                     <Tooltip showArrow placement="bottom" size="md" color="primary" content="Деталі по замовленню уточнюйте за телефоном">
                         <motion.p

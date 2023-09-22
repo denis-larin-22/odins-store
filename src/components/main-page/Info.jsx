@@ -3,8 +3,8 @@ import { Contacts } from "../common";
 import { motion, useInView } from "framer-motion";
 
 export const Info = () => {
-    const hStyles = 'text-mob-xxl-size sm:text-xxl-size circuit-text uppercase';
-    const pStyles = 'text-mob-xl-size sm:text-xl-size pt-[10px] sm:pt-[20px]';
+    const hStyles = 'text-mob-xl-size sm:text-xl-size circuit-text uppercase';
+    const pStyles = 'text-mob-md-size sm:text-md-size pt-[10px] sm:pt-[20px]';
 
     // Animation
     const ref = useRef(null);
@@ -19,7 +19,7 @@ export const Info = () => {
         <section>
             <div className="py-[10px] bg-black">
                 <div className="container text-center md:text-start text-white gap-x-[40px]">
-                    <h2 className="text-mob-xxl-size md:text-xxl-size uppercase">зомовлення</h2>
+                    <h2 className="text-mob-xxl-size md:text-xxl-size uppercase">замовлення</h2>
                 </div>
             </div>
             <ul ref={ref} className="container py-[45px] flex flex-col gap-y-[30px] sm:gap-y-[45px]">

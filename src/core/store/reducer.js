@@ -17,7 +17,6 @@ export const reducer = (state = initState, action) => {
             return {
                 ...state,
                 productList: action.payload,
-                catalogList: action.payload,
             }
 
         case setActiveProductAction.TYPE:  
@@ -51,20 +50,11 @@ export const reducer = (state = initState, action) => {
 //Filter
         case filterListAction.TYPE:
             const {productList} = state;
-            const {season, gender} = action.payload;
-            let catalogList;
-
-            if (season !== '' && gender === '') {
-                catalogList = productList.filter(item => item.season === season)
-            } else if (season === '' && gender !== '') {
-                catalogList = productList.filter(item => item.gender === gender)
-            } else if (season !== '' && gender !== '') {
-                catalogList = productList.filter(item => item.gender === gender && item.season === season);
-            }
-
+            const filteredList = productList.filter(product => product.gender === action.payload)
+            
             return {
                 ...state,
-                catalogList: catalogList
+                catalogList: filteredList
             }
 
         case resetFilterAction.TYPE:

@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { CarouselBaner } from "../components/catalog-page";
+import { Filters } from "../components/catalog-page";
 import { ProductList } from "../components/catalog-page/ProductList";
 import { Header, Footer } from "../components/common";
 import { getProductsListFromFirebase } from "../api/getProductsListFromFirebase";
+import { filterListAction } from "../core/store";
 
-const CatalogPageView = ({ list, catalog, getList }) => {
+const CatalogPageView = ({ list, catalog, getList, getFilter }) => {
 
     useEffect(() => {
         if (!list.length) getList();
@@ -13,13 +14,18 @@ const CatalogPageView = ({ list, catalog, getList }) => {
     })
 
     return (
-        <>
-            <Header />
-            <ProductList catalog={catalog} />
-            {/* <LeaderProducts /> */}
-            <CarouselBaner list={list} />
-            <Footer />
-        </>
+        <div className="min-h-screen flex flex-col justify-between">
+            <div>
+                <Header />
+                <Filters list={list} getFilter={getFilter} />
+            </div>
+            <div>
+
+                <ProductList catalog={catalog} />
+                <Footer />
+            </div>
+
+        </div>
     )
 }
 
@@ -29,7 +35,8 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-    getList: () => dispatch(getProductsListFromFirebase())
+    getList: () => dispatch(getProductsListFromFirebase()),
+    getFilter: (filter) => dispatch(filterListAction(filter)),
 })
 
 export const CatalogPage = connect(mapState, mapDispatch)(CatalogPageView);

@@ -3,7 +3,7 @@ import { getFromPublic } from "../../_utils/getFromPublic";
 
 export const Contacts = ({ numberView = true }) => {
     const telephoneLogo = getFromPublic('/assets/common/telephone.png');
-    const pStyles = 'text-mob-xl-size sm:text-xl-size pt-[10px] sm:pt-[20px]'
+    const pStyles = 'font-sans text-mob-xl-size sm:text-xl-size pt-[10px] sm:pt-[20px]'
 
     return (
         <div className="container text-xl-size">

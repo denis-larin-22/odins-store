@@ -41,7 +41,7 @@ module.exports = {
         fontWeight: 400
       }],
       'mob-md-size': ['1.2rem', {
-        lineHeight: '1.12em',
+        lineHeight: '1.3em',
         fontWeight: 400
       }]
     },

@@ -1,67 +1,53 @@
-import { Accordion, AccordionItem, Button, Radio, RadioGroup } from "@nextui-org/react"
-import { useState } from "react";
-import { connect } from "react-redux";
-import { filterListAction, resetFilterAction } from "../../core/store";
-import { motion } from "framer-motion";
+import { getFromPublic } from "../../_utils";
 
-const FiltersView = ({ getFilter, getResetFilter }) => {
-    const [season, setSeason] = useState("");
-    const [gender, setGender] = useState("");
+export const Filters = ({ list, getFilter }) => {
+    const filters = [
+        {
+            name: 'male',
+            text: 'Чоловіче взуття',
+            img: getFromPublic('/assets/common/male-shoes.jpg'),
+            count: list.filter(item => item.gender === 'male').length
+        },
+        {
+            name: 'female',
+            text: 'Жіноче взуття',
+            img: getFromPublic('/assets/common/female-shoes.jpg'),
+            count: list.filter(item => item.gender === 'female').length
+        },
+        {
+            name: 'teenager',
+            text: 'Підліткове взуття',
+            img: getFromPublic('/assets/common/teenage-shoes.jpg'),
+            count: list.filter(item => item.gender === 'teenager').length
+        },
+    ]
 
-    const btnHandler = () => {
-        const filterParam = { season, gender }
-        getFilter(filterParam);
-    }
-
-    const resetHandler = () => {
-        setSeason('');
-        setGender('');
-        getResetFilter();
+    const declinationByNumber = (number) => {
+        const cases = [2, 0, 1, 1, 1, 2];
+        const words = ['товар', 'товара', 'товарiв'];
+        const index = (number % 100 > 4 && number % 100 < 20) ? 2 : cases[Math.min(number % 10, 5)];
+        return `${words[index]}`;
     }
 
     return (
-        <>
-            <Accordion>
-                <AccordionItem key="1" aria-label="Фільтрувати" title="Фільтрувати" classNames={{ content: "flex flex-col md:flex-row items-center gap-3 text-large" }} className="border-b-1 border-black">
-                    <div className="flex gap-3 p-[10px]">
-                        <RadioGroup
-                            label="Сезон:"
-                            value={season}
-                            onChange={e => setSeason(e.target.value)}
-                        >
-                            <Radio value="winter">Зима</Radio>
-                            <Radio value="summer">Літо</Radio>
-                            <Radio value="demi-season">Весна/Осінь</Radio>
-                        </RadioGroup>
-
-                        <RadioGroup
-                            label="Для кого:"
-                            value={gender}
-                            onChange={e => setGender(e.target.value)}
-                        >
-                            <Radio value="male">для нього</Radio>
-                            <Radio value="female">для неї</Radio>
-                            <Radio value="teenager">підліток</Radio>
-                        </RadioGroup>
+        <section className="container flex justify-center gap-4">
+            {
+                filters.map((item, index) => (
+                    <div
+                        key={item.name + index}
+                        className="max-w-[200px] flex flex-col items-center cursor-pointer"
+                        onClick={() => getFilter(item.name)}
+                    >
+                        <img src={item.img} alt="male shoes" className="min-w-full max-h-[200px]" />
+                        <p variant="light" className="text-small md:text-medium text-center font-bold">
+                            {item.text}
+                        </p>
+                        <p variant="light" className="text-small text-gray-500">
+                            {item.count} {declinationByNumber(item.count)}
+                        </p>
                     </div>
-                    {
-                        (season || gender) && <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} className="max-w-[250px] flex flex-col gap-2">
-                            <Button className="rounded-none" onClick={btnHandler}>Відфільтрувати</Button>
-                            <Button className="rounded-none" onClick={resetHandler}>Скасувати</Button>
-                        </motion.div>
-
-                    }
-                </AccordionItem>
-            </Accordion>
-
-        </>
+                ))
+            }
+        </section>
     );
-
 }
-
-const mapDispatch = (dispatch) => ({
-    getFilter: (payload) => dispatch(filterListAction(payload)),
-    getResetFilter: () => dispatch(resetFilterAction())
-})
-
-export const Filters = connect(null, mapDispatch)(FiltersView);

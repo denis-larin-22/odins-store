@@ -1,7 +1,5 @@
 import { ProductCard } from "../common";
 import { motion } from "framer-motion";
-import { Filters } from "./Filters";
-import { Spinner } from "@nextui-org/react";
 
 export const ProductList = ({ catalog }) => {
     const container = {
@@ -24,17 +22,10 @@ export const ProductList = ({ catalog }) => {
         },
     };
 
-    if (catalog === null) return <section className="container">
-        <Filters />
-        <div className="min-h-[50vh] flex items-center justify-center">
-            <Spinner size="lg" />
-        </div>
-    </section>
+    if (catalog === null) return null;
 
     return (
         <section className="container">
-            <Filters />
-
             {(catalog.length) ?
                 <motion.ul
                     variants={container}
@@ -57,7 +48,7 @@ export const ProductList = ({ catalog }) => {
                 </motion.ul>
                 :
                 <>
-                    <p className="text-center my-[30vh]">На жаль, нічого не знайдено</p>
+                    <p className="text-center my-[40px]">На жаль, нічого не знайдено</p>
                 </>
             }
         </section >
